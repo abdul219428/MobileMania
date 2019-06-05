@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.theme.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.structure.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>@ViewBag.Title - Mobile Mania</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/Site.css")
+   
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="font-size:medium;height:70px;font-weight:500;background-color:#101010">
+        <div class="container-fluid">
+            <div class="navbar-header" style="padding-top:10px">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+                <strong> @Html.ActionLink("Mobile Mania", "Index", "Mobile", new { area = "" }, new { @class = "navbar-brand" })</strong>
+            </div>
+            <div class="navbar-collapse collapse" style="background-color:#101010">
+                <ul class="nav navbar-nav" style="padding-top:10px;font-size:medium;">
+
+                    <li>
+                        @Html.ActionLink("AllMobiles", "AllMobiles", "Mobile")
+                    </li>
+
+                    <li>
+                        @Html.ActionLink("Flagship Mobiles", "FlagshipMobiles", "Mobile")
+                    </li>
+
+                    <li>
+                        @Html.ActionLink("Midrange Mobiles", "MidrangeMobiles", "Mobile")
+                    </li>
+
+                    <li>
+                        @Html.ActionLink("Entry Level Mobiles", "EntryLevelMobiles", "Mobile")
+                    </li>
+
+                    <li>
+                        <form class="navbar-form navbar-left" action="/Mobile/SearchByMobileName">
+                            <div class="form-group">
+                                <div class="ui-widget">
+                                    <input type="text" class="form-control" id="search" placeholder="Enter Mobile Name" name="search" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-info">Search</button>
+
+                        </form>
+                    </li>
+
+                    <li>
+
+                        @Html.ActionLink("Add Mobile", "Create")
+
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="container-fluid" style="padding-top:20px">
+        <div class="row">
+            <div class="col-md-2 col-lg-2 col-xs-2">
+                <div class="sidebar-nav-fixed affix">
+                    <div class=" well well-lg well-sm">
+
+                        <div class=" row-no-gutters" style="text-align:center">
+                            <ul class="nav ">
+                                <li class="nav-header" style="text-align:center"><strong>Phone Finder</strong></li>
+
+                                <form class="form-group" id="searchMobileName" action="/Mobile/MobileFinder">
+
+                                    <input type="text" class="form-control" id="Price" name="Price" placeholder="Enter Price" required />
+                                    <input type="text" class="form-control" id="BatterySize" name="BatterySize" placeholder="Enter Battery Capacity" required/>
+                                    <input type="text" class="form-control" id="ProcessorName" name="ProcessorName" placeholder="Enter Processor Name" required />
+                                    <input type="text" class="form-control" id="RAM" name="RAM" placeholder="Enter RAM" required/>
+                                    <input type="text" class="form-control" id="ScreenResolution" name="ScreenResolution" placeholder="Enter Resolution" required />
+                                    <br />
+                                    <button type="submit" class="btn btn-info">Search</button>
+
+                                </form>
+                        
+                                
+                                </div>
+
+
+                        </ul>
+                    </div>
+                    <div class=" container-fluid well well-sm well-lg">
+                        <ul class="nav">
+                            <li class="nav-header" style="text-align:center"><strong>Find Phone by Brand</strong></li>
+
+                            <a href="/Mobile/SearchByBrand?Brand=Samsung">Samsung</a>
+                            <a href="/Mobile/SearchByBrand?Brand=Google">Google</a>
+                            <a href="/Mobile/SearchByBrand?Brand=Xiaomi">Xiaomi</a>
+                            <a href="/Mobile/SearchByBrand?Brand=Apple">Apple</a>
+                            <a href="/Mobile/SearchByBrand?Brand=Asus">Asus</a>
+                            <a href="/Mobile/SearchByBrand?Brand=Oppo">Oppo</a>
+                            <a href="/Mobile/SearchByBrand?Brand=Realme">Realme</a>
+                            <a href="/Mobile/SearchByBrand?Brand=Sony">Sony</a>
+                            <a href="/Mobile/SearchByBrand?Brand=One Plus">One Plus</a>
+                            <a href="/Mobile/SearchByBrand?Brand=LG">LG</a>
+
+                        </ul>
+                    </div>
+                    <!--/.well -->
+                </div>
+            </div>
+            <div class="container-fluid col-md-8 col-lg-8 col-xs-8">
+                @RenderBody()
+            </div>
+            <div class=" container-fluid col-md-2 col-lg-2 col-xs-2">
+                <div class="sidebar-nav-fixed affix">
+                    <div class="col-md-10 col-xs-10 well well-lg well-sm">
+                        <ul class="nav ">
+                            <li class="nav-header">Find by Month</li>
+                            @for (int i = 0; i >= -11; i--)
+                            {
+                        <li>
+                            <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(i).Month &year=@DateTime.Now.AddMonths(i).Year">@DateTime.Now.AddMonths(i).ToString("MMMM") @DateTime.Now.AddMonths(i).ToString("yy")</a>
+                        </li>
+                               
+                            }
+                            @*<li>
+                                <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(0).Month &year=@DateTime.Now.AddMonths(0).Year">@DateTime.Now.AddMonths(0).ToString("MMMM") @DateTime.Now.AddMonths(0).ToString("yy")</a>
+                            </li>
+                            <li>
+                                <a class="month-year"  href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(-1).Month &year=@DateTime.Now.AddMonths(-1).Year">@DateTime.Now.AddMonths(-1).ToString("MMMM") @DateTime.Now.AddMonths(-1).ToString("yy")</a>
+                            </li>
+                            <li>
+                                <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(-2).Month &year=@DateTime.Now.AddMonths(-2).Year">@DateTime.Now.AddMonths(-2).ToString("MMMM") @DateTime.Now.AddMonths(-2).ToString("yy")</a>
+                            </li>
+                            <li>
+                                <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(-3).Month &year=@DateTime.Now.AddMonths(-3).Year">@DateTime.Now.AddMonths(-3).ToString("MMMM") @DateTime.Now.AddMonths(-3).ToString("yy")</a>
+                            </li>
+                            <li>
+                                <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(-4).Month &year=@DateTime.Now.AddMonths(-4).Year">@DateTime.Now.AddMonths(-4).ToString("MMMM") @DateTime.Now.AddMonths(-4).ToString("yy")</a>
+                            </li>
+                            <li>
+                                <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(-5).Month &year=@DateTime.Now.AddMonths(-5).Year">@DateTime.Now.AddMonths(-5).ToString("MMMM") @DateTime.Now.AddMonths(-5).ToString("yy")</a>
+                            </li>
+                            <li>
+                                <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(-6).Month &year=@DateTime.Now.AddMonths(-6).Year">@DateTime.Now.AddMonths(-6).ToString("MMMM") @DateTime.Now.AddMonths(-6).ToString("yy")</a>
+                            </li>
+                            <li>
+                                <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(-7).Month &year=@DateTime.Now.AddMonths(-7).Year">@DateTime.Now.AddMonths(-7).ToString("MMMM") @DateTime.Now.AddMonths(-7).ToString("yy")</a>
+                            </li>
+                            <li>
+                                <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(-8).Month &year=@DateTime.Now.AddMonths(-8).Year">@DateTime.Now.AddMonths(-8).ToString("MMMM") @DateTime.Now.AddMonths(-8).ToString("yy")</a>
+                            </li>
+                            <li>
+                                <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(-9).Month &year=@DateTime.Now.AddMonths(-9).Year">@DateTime.Now.AddMonths(-9).ToString("MMMM") @DateTime.Now.AddMonths(-9).ToString("yy")</a>
+                            </li>
+                            <li>
+                                <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(-10).Month &year=@DateTime.Now.AddMonths(-10).Year">@DateTime.Now.AddMonths(-10).ToString("MMMM") @DateTime.Now.AddMonths(-10).ToString("yy")</a>
+                            </li>
+                            <li>
+                                <a class="month-year" href="/Mobile/FindByMonth?month=@DateTime.Now.AddMonths(-11).Month &year=@DateTime.Now.AddMonths(-11).Year">@DateTime.Now.AddMonths(-11).ToString("MMMM") @DateTime.Now.AddMonths(-11).ToString("yy")</a>
+                            </li>*@
+
+                        </ul>
+                    </div>
+
+                    <!--/.well -->
+                </div>
+            </div>
+
+        </div>
+        <!--/sidebar-nav-fixed -->
+    </div>
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+           
+</body>
+</html>

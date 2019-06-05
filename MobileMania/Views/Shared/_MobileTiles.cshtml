@@ -1,0 +1,36 @@
+﻿@using MobileMania.Models
+
+@model IEnumerable<MobileInfo>
+
+@Styles.Render("~/Content/Site.css")
+    
+    
+    <div>
+        
+        @foreach (var c in Model)
+        {
+
+            <div style=" display: inline-block ;padding:10px 10px">
+                <div style=" display: inline-block">
+
+                    <a href="@Url.Action("Details", "Mobile", new { id = c.ID })">
+                        <img style="height:162px;position:center" src=@c.ImageURL>
+                        <span style="display: block;text-align: center;width: 100%;">
+                            <strong>@Html.DisplayFor(m => c.BrandName)</strong>
+                            <strong>
+                                @Html.DisplayFor(m => c.MobileName)
+                            </strong>
+                        </span>
+                        <span style="display: block;text-align: center;width: 100%; color:red">
+                            <strong>
+                                Rs.@Html.DisplayFor(m => c.Price)
+                            </strong>
+                        </span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        }
+    </div>

@@ -1,0 +1,163 @@
+﻿@model MobileMania.Models.MobileInfo
+@Styles.Render("~/Content/Site.css")
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div >
+    <h4>MobileInfo</h4>
+    <div>
+        <div style=" display: inline-block">
+            
+
+                <a href="@Url.Action("Details", "Mobile", new { id = Model.ID })">
+                    <img src=@Model.ImageURL>
+                    <span style="display: block;text-align: center;width: 100%;">
+                        <strong>
+                            @Html.DisplayFor(m => Model.MobileName)
+                        </strong>
+                    </span>
+                </a>
+
+            
+
+        </div>
+        <dl class="dl-horizontal" style="display:inline-block">
+            <dt >
+                @Html.DisplayNameFor(model => model.BrandName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BrandName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MobileName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MobileName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProcessorName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProcessorName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AndroidOsName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AndroidOsName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AndroidOsVersion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AndroidOsVersion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RearCameraPrimary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RearCameraPrimary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RearCameraSecondary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RearCameraSecondary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RearCameraTertiary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RearCameraTertiary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FrontCameraPrimary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FrontCameraPrimary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FrontCameraSecondary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FrontCameraSecondary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RAM)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RAM)GB
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BatterySize)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BatterySize)mAh
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ScreenSize)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ScreenSize)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ReleaseDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ScreenResolution)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ScreenResolution)
+            </dd>
+
+        </dl>
+    </div>
+    
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

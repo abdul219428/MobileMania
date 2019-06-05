@@ -1,0 +1,13 @@
+﻿@model IEnumerable<MobileMania.Models.MobileInfo>
+
+@{
+    int m = Convert.ToInt16(Request.QueryString["month"]);
+    string mon = DateTime.Now.AddMonths(m).ToString("MMMM");
+    string year = DateTime.Now.AddMonths(m).ToString("yy");
+    ViewBag.Title = mon + " " + year;
+}
+
+<h2 style="text-align:center;color:lightslategrey">Phones by Month</h2>
+
+
+@Html.Partial("_MobileTiles")

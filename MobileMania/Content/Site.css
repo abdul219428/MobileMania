@@ -1,0 +1,73 @@
+﻿body {
+    padding-bottom: 40px;
+    padding-top: 60px;
+    background-color: #eeeeee;
+}
+
+
+
+ 
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+
+.dl-horizontal{
+    padding-left:20px;
+}
+
+    .dl-horizontal dt {
+        white-space: normal;
+        color: #5bc0de;
+        text-align: left;
+    }
+.dl-horizontal dd {
+    white-space: normal;
+    text-align: left;
+ 
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+a {
+    color: slategrey;
+    text-decoration:none;
+    
+    
+}
+    /* CSS link color (red) */
+    a:hover {
+        color: #5bc0de;
+        outline-color: black;
+        outline-width: thin;
+        text-decoration: none;
+    }
+/* CSS link hover (green) */
+.well {
+    font-size: medium;
+    color: #5bc0de;
+    background-color: #e0e0e0;
+    border: 1px solid #e3e3e3;
+    min-height: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+}
+ /*very very important*/
+.sidebar-nav-fixed {
+    width: 14%;
+}
+
+
